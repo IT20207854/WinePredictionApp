@@ -66,13 +66,17 @@ def get_user_input():
 user_input_df = get_user_input()
 processed_user_input = data_preprocessor(user_input_df)
 
-st.subheader('Your Inputs')
+st.subheader('Wine quality factor input values')
+st.write("""
+  White Variant - 0\n
+  Red Variant - 1
+""")
 st.write(user_input_df)
 
 prediction = model.predict(processed_user_input)
 prediction_proba = model.predict_proba(processed_user_input)
 
-st.subheader('Prediction')
+st.subheader('Prediction for wine quality')
 st.write(prediction)
 
 if prediction[0] > 5:
